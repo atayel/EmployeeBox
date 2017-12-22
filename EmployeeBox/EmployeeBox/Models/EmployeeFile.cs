@@ -1,0 +1,28 @@
+namespace EmployeeBox.Models
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class EmployeeFile
+    {
+        public int EmployeeFileID { get; set; }
+
+        public int? EmployeeID { get; set; }
+
+        public string Name { get; set; }
+
+        public int? EmployeeFileTypeID { get; set; }
+
+        [StringLength(10)]
+        public string State { get; set; }
+
+        public string FileUrl { get; set; }
+
+        public virtual EmployeeFileType EmployeeFileType { get; set; }
+
+        public virtual Employee Employee { get; set; }
+    }
+}
