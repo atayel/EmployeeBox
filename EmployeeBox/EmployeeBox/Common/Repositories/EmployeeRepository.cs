@@ -156,11 +156,6 @@ namespace EmployeeBox.Common.Repositories
             }
         }
 
-        public Employee Find()
-        {
-            throw new NotImplementedException();
-        }
-
         public Employee Find(int id)
         {
             return _db.Employees
@@ -173,7 +168,7 @@ namespace EmployeeBox.Common.Repositories
                 .SingleOrDefault();
         }
 
-        public IEnumerable<Employee> List()
+        public IEnumerable<Employee> List(int? page = 1, int? pageSize = 10)
         {
             return _db.Employees
                 .Include(e => e.EmployeeFiles)
@@ -181,7 +176,7 @@ namespace EmployeeBox.Common.Repositories
                 .Include(e => e.EmployeeShares)
                 .Include(e => e.EmployeeStateLog)
                 .Include(e => e.EmployeeSubscriptionFees)
-                .ToList();
+                .ToList().Skip(((int)page - 1) * (int)pageSize).Take((int)pageSize);
         }
 
         public IEnumerable<Employee> List(string employeeName = null,
@@ -189,7 +184,7 @@ namespace EmployeeBox.Common.Repositories
             DateTime? hireDateFrom = default(DateTime?),DateTime? hireDateTo = default(DateTime?),
             DateTime? joinDateFrom = default(DateTime?),DateTime? joinDateTo = default(DateTime?),
             EmployeeShare employeeShareFrom = null,EmployeeShare employeeShareTo = null,
-            EducationalQualification employeeEducation = null)
+            EducationalQualification employeeEducation = null, int? page = 1, int? pageSize = 10)
         {
             var _query = from t in _db.Employees
                 .Include(e => e.EmployeeFiles)
@@ -199,7 +194,7 @@ namespace EmployeeBox.Common.Repositories
                 .Include(e => e.EmployeeSubscriptionFees) select t;
 
             if (employeeName != string.Empty)
-                _query = _query.Where(e => e.Name == employeeName);
+                _query = _query.Where(e => e.Name == employeeName || e.Name.Contains(employeeName));
 
             if (nationalID > 0)
                 _query = _query.Where(e => e.NationalID == nationalID);
@@ -222,7 +217,14 @@ namespace EmployeeBox.Common.Repositories
             else if (employeeShareFrom != null && employeeShareTo == null)
                 _query = _query.Where(e => e.EmployeeShares.Contains(employeeShareFrom));
 
-            return _query.ToList();
+            return _query.ToList().Skip(((int)page - 1) * (int)pageSize).Take((int)pageSize);
+        }
+
+        public bool IsExist(string emplyeeName = null, decimal? nationalID = default(decimal?))
+        {
+            return _db.Employees
+                .Where(e => e.Name == emplyeeName && e.NationalID == nationalID)
+                .Count() > 0;
         }
     }
 }

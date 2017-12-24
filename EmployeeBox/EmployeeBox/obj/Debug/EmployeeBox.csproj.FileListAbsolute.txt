@@ -1,0 +1,9 @@
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EmployeeBox.dll.config
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EmployeeBox.dll
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EmployeeBox.pdb
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EntityFramework.dll
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EntityFramework.SqlServer.dll
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EntityFramework.xml
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EntityFramework.SqlServer.xml
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\obj\Debug\EmployeeBox.dll
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\obj\Debug\EmployeeBox.pdb

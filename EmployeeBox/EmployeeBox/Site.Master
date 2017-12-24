@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ar">
 <head runat="server">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,6 +39,8 @@
     <link href="Content/css/bootstrap-rtl.css" rel="stylesheet">
     <link rel="stylesheet" href="Content/css/rtl-css/plugins/bootstrap-progressbar-3.1.1-rtl.css">
     <link rel="stylesheet" href="Content/css/rtl-css/plugins/jquery-jvectormap-rtl.css">
+    <link rel="stylesheet" href="Content/css/rtl-css/plugins/selectize.bootstrap3-rtl.css">
+    <link rel="stylesheet" href="Content/css/rtl-css/plugins/jquery.datetimepicker-rtl.css">
 
     <!--AmaranJS Css Start-->
     <link href="Content/css/rtl-css/plugins/amaranjs/jquery.amaran-rtl.css" rel="stylesheet">
@@ -633,6 +635,18 @@
     <!--Layout Script End -->
 
 
+    <!--selectize Library start-->
+    <script src="~/../../../Content/js/selectize.min.js"></script>
+    <!--selectize Library End-->
+
+    <!--Select & Tag demo start-->
+    <script src="~/../../../Content/js/pages/selectTag.js"></script>
+    <!--Select & Tag demo end-->
+
+
+    <!-- Date & Time Picker Library Script Start -->
+    <script src="~/../../../Content/js/jquery.datetimepicker.js"></script>
+    <!-- Date & Time Picker Library Script End -->
 
     <script src="~/../../../Content/js/countUp.min.js"></script>
 
