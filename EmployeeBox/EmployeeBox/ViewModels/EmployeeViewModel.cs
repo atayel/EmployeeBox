@@ -1,5 +1,4 @@
-﻿using EmployeeBox.Models;
-using System;
+﻿using System;
 
 namespace EmployeeBox.ViewModels
 {
@@ -17,10 +16,10 @@ namespace EmployeeBox.ViewModels
 
         public DateTime? JoinDateTo { get; set; }
 
-        public virtual EmployeeShare EmployeeShareFrom { get; set; }
+        public double? EmployeeShareFrom { get; set; }
 
-        public virtual EmployeeShare EmployeeShareTo { get; set; }
+        public double? EmployeeShareTo { get; set; }
 
-        public virtual EducationalQualification EducationalQualifications { get; set; }
+        public int? EducationalQualifications { get; set; }
     }
 }

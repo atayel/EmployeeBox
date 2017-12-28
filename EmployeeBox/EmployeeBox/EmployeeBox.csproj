@@ -620,14 +620,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\ConnectionClass.cs" />
     <Compile Include="Common\Factories\ICommonRepository.cs" />
-    <Compile Include="Common\Factories\IEducationalQualificationRepository.cs" />
     <Compile Include="Common\Factories\IEmployeeRepository.cs" />
-    <Compile Include="Common\Factories\IEmployeeShareRepository.cs" />
     <Compile Include="Common\Repositories\CommonRepository.cs" />
-    <Compile Include="Common\Repositories\EducationalQualificationRepository.cs" />
     <Compile Include="Common\Repositories\EmployeeRepository.cs" />
-    <Compile Include="Common\Repositories\EmployeeShareRepository.cs" />
     <Compile Include="Models\Bank.cs" />
     <Compile Include="Models\Certificate.cs" />
     <Compile Include="Models\CertificateType.cs" />
@@ -740,6 +737,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Content\css\rtl-css\plugins\humane_themes\" />
     <Folder Include="Content\css\rtl-css\plugins\icheck\skins\" />
   </ItemGroup>

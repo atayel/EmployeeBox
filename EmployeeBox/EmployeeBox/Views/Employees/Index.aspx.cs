@@ -12,8 +12,6 @@ namespace EmployeeBox.Views.Employees
     public partial class Index : Page
     {
         private IEmployeeRepository _repository;
-        private IEmployeeShareRepository _share;
-        private IEducationalQualificationRepository _education;
         private ICommonRepository _common;
 
         #region Form_Events
@@ -24,8 +22,6 @@ namespace EmployeeBox.Views.Employees
 
             _repository = new EmployeeRepository();
             _common = new CommonRepository();
-            _share = new EmployeeShareRepository();
-            _education = new EducationalQualificationRepository();
 
             if (!Page.IsPostBack)
             {
@@ -37,7 +33,7 @@ namespace EmployeeBox.Views.Employees
                     Value = "0"
                 });
 
-                foreach (var item in _education.List())
+                foreach (var item in _repository.EducationalQualificationList())
                 {
                     employeeEducationList.Items.Add(new ListItem {
                         Text = item.EducationalQualificationName,
@@ -72,13 +68,13 @@ namespace EmployeeBox.Views.Employees
                 _employee.JoinDateTo = DateTime.ParseExact(txtJoinDateTo.Value, "dd/MM/yyyy", null);
 
             if (!string.IsNullOrEmpty(txtEmployeeShareFrom.Value))
-                _employee.EmployeeShareFrom = _share.Find(double.Parse(txtEmployeeShareFrom.Value));
+                _employee.EmployeeShareFrom = double.Parse(txtEmployeeShareFrom.Value);
 
             if (!string.IsNullOrEmpty(txtEmployeeShareTo.Value))
-                _employee.EmployeeShareTo = _share.Find(double.Parse(txtEmployeeShareTo.Value));
+                _employee.EmployeeShareTo = double.Parse(txtEmployeeShareTo.Value);
 
             if (employeeEducationList.Value != "0")
-                _employee.EducationalQualifications = _education.Find(Convert.ToInt32(employeeEducationList.Value));
+                _employee.EducationalQualifications = Convert.ToInt32(employeeEducationList.Value);
 
             var _results = _repository.List(_employee.Name, _employee.NationalID,
                 _employee.HireDateFrom,_employee.HireDateTo,_employee.JoinDateFrom,_employee.JoinDateTo,

@@ -14,9 +14,10 @@ namespace EmployeeBox.Common.Factories
         IEnumerable<Employee> List(string employeeName = null,decimal? nationalID = null,
             DateTime? hireDateFrom = null,DateTime? hireDateTo=null,
             DateTime? joinDateFrom = null,DateTime? joinDateTo = null,
-            EmployeeShare employeeShareFrom = null,EmployeeShare employeeShareTo = null,
-            EducationalQualification employeeEducation = null, int? page = 1, int? pageSize = 10);
+            double? employeeShareFrom = 0,double? employeeShareTo = 0,
+            int? employeeEducation = 0, int? page = 1, int? pageSize = 10);
         Employee Find(int id);
         bool IsExist(string emplyeeName = null, decimal? nationalID = null);
+        IEnumerable<EducationalQualification> EducationalQualificationList();
     }
 }
