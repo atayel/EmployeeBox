@@ -42,14 +42,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -614,17 +606,14 @@
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-vi.js" />
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-zh_CN.js" />
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-zh_TW.js" />
-    <Content Include="Views\Employees\Add.aspx" />
-    <Content Include="Views\Employees\Index.aspx" />
-    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="EmployeesList.aspx" />
+    <Content Include="Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\ConnectionClass.cs" />
-    <Compile Include="Common\Factories\ICommonRepository.cs" />
-    <Compile Include="Common\Factories\IEmployeeRepository.cs" />
-    <Compile Include="Common\Repositories\CommonRepository.cs" />
-    <Compile Include="Common\Repositories\EmployeeRepository.cs" />
+    <Compile Include="App_Code\CommonRepository.cs" />
+    <Compile Include="App_Code\EmployeeRepository.cs" />
     <Compile Include="Models\Bank.cs" />
     <Compile Include="Models\Certificate.cs" />
     <Compile Include="Models\CertificateType.cs" />
@@ -639,7 +628,6 @@
     <Compile Include="Models\EmployeeStateLog.cs" />
     <Compile Include="Models\EmployeeSubscriptionFee.cs" />
     <Compile Include="Models\EmployeeSubscriptionFeeRatio.cs" />
-    <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -650,25 +638,18 @@
     </Compile>
     <Compile Include="ViewModels\ContextState.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
-    <Compile Include="Views\Employees\Add.aspx.cs">
-      <DependentUpon>Add.aspx</DependentUpon>
+    <Compile Include="EmployeesList.aspx.cs">
+      <DependentUpon>EmployeesList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Employees\Add.aspx.designer.cs">
-      <DependentUpon>Add.aspx</DependentUpon>
+    <Compile Include="EmployeesList.aspx.designer.cs">
+      <DependentUpon>EmployeesList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Employees\Index.aspx.cs">
+    <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Employees\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Home\Index.aspx.designer.cs">
+    <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -728,7 +709,6 @@
     <Content Include="Content\images\file-manager\src\quicklook-icons.pxm" />
     <Content Include="Content\images\file-manager\src\toolbar.pxm" />
     <Content Include="Content\images\Luscious-gmap.zip" />
-    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

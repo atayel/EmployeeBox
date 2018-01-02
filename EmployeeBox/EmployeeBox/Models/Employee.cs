@@ -3,8 +3,6 @@ namespace EmployeeBox.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     public partial class Employee
     {
@@ -17,30 +15,23 @@ namespace EmployeeBox.Models
             EducationalQualifications = new HashSet<EducationalQualification>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int EmployeeID { get; set; }
 
-        [Column(TypeName = "numeric")]
         public decimal? NationalID { get; set; }
 
         [StringLength(100)]
         public string Name { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? BirthDate { get; set; }
 
         public string Address { get; set; }
 
-        [Column(TypeName = "numeric")]
         public decimal? PhoneNumber { get; set; }
 
-        [Column(TypeName = "text")]
         public string Photo { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? HireDate { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? JoinDate { get; set; }
 
         public int? EmployeeStateLogID { get; set; }

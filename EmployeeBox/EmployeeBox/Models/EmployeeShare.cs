@@ -1,11 +1,5 @@
 namespace EmployeeBox.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
     public partial class EmployeeShare
     {
         public int EmployeeShareID { get; set; }
