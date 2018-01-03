@@ -139,6 +139,20 @@
                         </tbody>
                     </table>
                 </div>
+
+
+                <div class="table-responsive ls-table">
+                    <asp:DataGrid class="table table-bordered table-striped" AllowPaging="true"
+                        AllowCustomPaging="true"
+                         runat="server" ID="dt">
+                        <Columns>
+                            <asp:BoundColumn HeaderText="المسلسل" DataField="EmployeeID"></asp:BoundColumn>
+                            <asp:BoundColumn HeaderText="الإسم" DataField="Name"></asp:BoundColumn>
+                            <asp:BoundColumn HeaderText="صورة الموظف" DataField="Photo"></asp:BoundColumn>
+                        </Columns>
+                        <PagerStyle CssClass="pagination pagination-sm"/>
+                    </asp:DataGrid>
+                </div>
             </div>
         </div>
     </div>

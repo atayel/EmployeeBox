@@ -86,33 +86,8 @@ namespace EmployeeBox
         #region Popualte_Table_With_Rows
         private void PopulateTable(DataTable _data)
         {
-            StringBuilder _html = new StringBuilder();
-
-            foreach (DataRow _row in _data.Rows)
-            {
-                _html.Append("<tr>");
-
-                _html.Append("<td>");
-                _html.Append(_row[0]);
-                _html.Append("</td>");
-
-                _html.Append("<td>");
-                _html.Append(_row[2]);
-                _html.Append("</td>");
-
-                _html.Append("<td>");
-                _html.Append(_row[6]);
-                _html.Append("</td>");
-
-                _html.Append("<td>");
-                _html.Append(@"<button class='btn btn-xs btn-success'><i class='fa fa-eye'></i></button>
-                                    <button class='btn btn-xs btn-warning'><i class='fa fa-pencil-square-o'></i></button>
-                                    <button class='btn btn-xs btn-danger'><i class='fa fa-minus'></i></button>");
-                _html.Append("</td>");
-
-                _html.Append("</tr>");
-            }
-            tableBody.InnerHtml = _html.ToString();
+            dt.DataSource = _data;
+            dt.DataBind();
         }
         #endregion
     }

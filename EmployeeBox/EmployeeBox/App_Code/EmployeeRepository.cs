@@ -10,6 +10,11 @@ namespace EmployeeBox.App_Code
     public class EmployeeRepository
     {
         SqlConnection _db = new SqlConnection(ConnectionClass._connection);
+        SqlCommand _com;
+        public EmployeeRepository()
+        {
+
+        }
 
         internal void Dispose()
         {
@@ -30,7 +35,7 @@ namespace EmployeeBox.App_Code
                 _db.Close();
                 return new ContextState {
                     State = true,
-                    Value = null
+                    //Value = null
                 };
             }
             catch (Exception ex)
@@ -38,7 +43,34 @@ namespace EmployeeBox.App_Code
                 return new ContextState
                 {
                     State = false,
-                    Value = ex
+                    ErrorMessage = ex.Message,
+                };
+            }
+        }
+
+        internal ContextState Create(Bank model)
+        {
+            try
+            {
+                //SqlCommand _com = new SqlCommand(@"INSERT INTO Employees
+                //      (NationalID, Name, BirthDate, Address, PhoneNumber, Photo, HireDate, JoinDate, EmployeeStateLogID)
+                //        VALUES     (" + model.NationalID + ",'" + model.Name + "'," + model.BirthDate + ",'" + model.Address + "'," +
+                //        model.PhoneNumber + ",'" + model.Photo + "'," + model.HireDate + "," + model.JoinDate + "," + model.EmployeeStateLogID + ")", _db);
+                //_db.Open();
+                //_com.ExecuteNonQuery();
+                //_db.Close();
+                return new ContextState
+                {
+                    State = true,
+                    //Value = null
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ContextState
+                {
+                    State = false,
+                    //Value = ex
                 };
             }
         }
@@ -48,14 +80,14 @@ namespace EmployeeBox.App_Code
             try
             {
                 SqlCommand _com = new SqlCommand(@"DELETE FROM Employees
-                WHERE     (EmployeeID = "+ model.EmployeeID +")",_db);
+                WHERE     (EmployeeID = " + model.EmployeeID + ")", _db);
                 _db.Open();
                 _com.ExecuteNonQuery();
                 _db.Close();
                 return new ContextState
                 {
                     State = true,
-                    Value = null
+                    //Value = null
                 };
             }
             catch (Exception ex)
@@ -63,7 +95,7 @@ namespace EmployeeBox.App_Code
                 return new ContextState
                 {
                     State = false,
-                    Value = ex
+                    //Value = ex
                 };
             }
         }
@@ -73,14 +105,14 @@ namespace EmployeeBox.App_Code
             try
             {
                 SqlCommand _com = new SqlCommand(@"UPDATE    Employees
-            SET NationalID = "+ model.NationalID +" , Name ='"+ model.Name +"', BirthDate = "+ model.BirthDate
-            +", Address = '"+ model.Address +"', PhoneNumber = "+ model.PhoneNumber +", Photo = '"+ model.Photo
-            +"', HireDate = "+ model.HireDate +" , JoinDate = "+ model.JoinDate +", EmployeeStateLogID = "+ model.EmployeeStateLogID
-            +" WHERE (EmployeeID = "+ model.EmployeeID +")",_db);
+            SET NationalID = " + model.NationalID + " , Name ='" + model.Name + "', BirthDate = " + model.BirthDate
+            + ", Address = '" + model.Address + "', PhoneNumber = " + model.PhoneNumber + ", Photo = '" + model.Photo
+            + "', HireDate = " + model.HireDate + " , JoinDate = " + model.JoinDate + ", EmployeeStateLogID = " + model.EmployeeStateLogID
+            + " WHERE (EmployeeID = " + model.EmployeeID + ")", _db);
                 return new ContextState
                 {
                     State = true,
-                    Value = null
+                    //Value = null
                 };
             }
             catch (Exception ex)
@@ -88,7 +120,7 @@ namespace EmployeeBox.App_Code
                 return new ContextState
                 {
                     State = false,
-                    Value = ex
+                    //Value = ex
                 };
             }
         }
@@ -98,7 +130,7 @@ namespace EmployeeBox.App_Code
             var model = new Employee();
             SqlCommand _com = new SqlCommand(@"SELECT     EmployeeID, NationalID, Name, BirthDate, Address,
                 PhoneNumber, Photo, HireDate, JoinDate, EmployeeStateLogID FROM         Employees
-                WHERE     (EmployeeID = " + id + ")",_db);
+                WHERE     (EmployeeID = " + id + ")", _db);
 
             _db.Open();
             SqlDataReader _dr = _com.ExecuteReader(CommandBehavior.SingleRow);
