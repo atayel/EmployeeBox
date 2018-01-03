@@ -26,7 +26,7 @@ namespace EmployeeBox.App_Code
         {
             try
             {
-                SqlCommand _com = new SqlCommand(@"INSERT INTO Employees
+                _com = new SqlCommand(@"INSERT INTO Employees
                       (NationalID, Name, BirthDate, Address, PhoneNumber, Photo, HireDate, JoinDate, EmployeeStateLogID)
                         VALUES     (" + model.NationalID + ",'" + model.Name + "'," + model.BirthDate + ",'" + model.Address + "'," +
                         model.PhoneNumber + ",'" + model.Photo + "'," + model.HireDate + "," + model.JoinDate + ","+ model.EmployeeStateLogID +")",_db);
