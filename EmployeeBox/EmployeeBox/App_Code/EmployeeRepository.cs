@@ -9,11 +9,11 @@ namespace EmployeeBox.App_Code
 {
     public class EmployeeRepository
     {
-        SqlConnection _db = new SqlConnection(ConnectionClass._connection);
+        SqlConnection _db;
         SqlCommand _com;
         public EmployeeRepository()
         {
-
+            _db = new SqlConnection(ConnectionClass._connection);
         }
 
         internal void Dispose()
@@ -22,6 +22,7 @@ namespace EmployeeBox.App_Code
             _db.Dispose();
         }
 
+        #region Create_Functions
         internal ContextState Create(Employee model)
         {
             try
@@ -34,8 +35,7 @@ namespace EmployeeBox.App_Code
                 _com.ExecuteNonQuery();
                 _db.Close();
                 return new ContextState {
-                    State = true,
-                    //Value = null
+                    State = true
                 };
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace EmployeeBox.App_Code
             }
         }
 
-        internal ContextState Create(Bank model)
+        internal ContextState Create(EmployeeFile model)
         {
             try
             {
@@ -74,32 +74,9 @@ namespace EmployeeBox.App_Code
                 };
             }
         }
+        #endregion
 
-        internal ContextState Delete(Employee model)
-        {
-            try
-            {
-                SqlCommand _com = new SqlCommand(@"DELETE FROM Employees
-                WHERE     (EmployeeID = " + model.EmployeeID + ")", _db);
-                _db.Open();
-                _com.ExecuteNonQuery();
-                _db.Close();
-                return new ContextState
-                {
-                    State = true,
-                    //Value = null
-                };
-            }
-            catch (Exception ex)
-            {
-                return new ContextState
-                {
-                    State = false,
-                    //Value = ex
-                };
-            }
-        }
-
+        #region Edit_Functions
         internal ContextState Edit(Employee model)
         {
             try
@@ -124,6 +101,34 @@ namespace EmployeeBox.App_Code
                 };
             }
         }
+        #endregion
+
+        #region Delete_Functions
+        internal ContextState Delete(Employee model)
+        {
+            try
+            {
+                SqlCommand _com = new SqlCommand(@"DELETE FROM Employees
+                WHERE     (EmployeeID = " + model.EmployeeID + ")", _db);
+                _db.Open();
+                _com.ExecuteNonQuery();
+                _db.Close();
+                return new ContextState
+                {
+                    State = true,
+                    //Value = null
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ContextState
+                {
+                    State = false,
+                    //Value = ex
+                };
+            }
+        }
+        #endregion
 
         internal Employee Find(int id)
         {
