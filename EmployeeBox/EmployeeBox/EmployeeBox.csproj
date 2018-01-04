@@ -606,6 +606,13 @@
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-vi.js" />
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-zh_CN.js" />
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-zh_TW.js" />
+    <Content Include="Views\EducationalQualification\Add.aspx" />
+    <Content Include="Views\EducationalQualification\Delete.aspx" />
+    <Content Include="Views\EducationalQualification\Edit.aspx" />
+    <Content Include="Views\EducationalQualification\List.aspx" />
+    <Content Include="Views\Employees\Add.aspx" />
+    <Content Include="Views\Employees\Delete.aspx" />
+    <Content Include="Views\Employees\Edit.aspx" />
     <Content Include="Views\Employees\List.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="Web.config" />
@@ -643,6 +650,55 @@
     </Compile>
     <Compile Include="ViewModels\ContextState.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="Views\EducationalQualification\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\EducationalQualification\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EducationalQualification\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\EducationalQualification\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EducationalQualification\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\EducationalQualification\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EducationalQualification\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\EducationalQualification\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employees\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employees\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employees\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employees\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employees\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employees\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Employees\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

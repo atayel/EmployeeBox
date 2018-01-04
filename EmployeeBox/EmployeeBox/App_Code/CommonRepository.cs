@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Data;
 using System;
+using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace EmployeeBox.App_Code
 {
@@ -21,6 +23,13 @@ namespace EmployeeBox.App_Code
             );
 
             return dt;
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        internal string GetCurrentMethodName()
+        {
+            var _stack = new StackTrace(new StackFrame(1));
+            return _stack.GetFrame(0).GetMethod().Name;
         }
 
         internal void Dispose()
