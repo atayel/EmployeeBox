@@ -130,6 +130,7 @@ namespace EmployeeBox.App_Code
         }
         #endregion
 
+        #region Find_Functions
         internal Employee Find(int id)
         {
             var model = new Employee();
@@ -159,6 +160,7 @@ namespace EmployeeBox.App_Code
 
             return model;
         }
+        #endregion
 
         internal IEnumerable<Employee> List(int? page = 1 , int? pageSize = 10)
         {
