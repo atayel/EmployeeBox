@@ -3,3 +3,4 @@ D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EmployeeBox.dll
 D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\bin\EmployeeBox.pdb
 D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\obj\Debug\EmployeeBox.dll
 D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\obj\Debug\EmployeeBox.pdb
+D:\EmployeeBox\EmployeeBox\EmployeeBox\EmployeeBox\obj\Debug\EmployeeBox.csprojResolveAssemblyReference.cache

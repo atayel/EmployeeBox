@@ -62,7 +62,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="545615156.html" />
     <Content Include="Content\css\bootstrap-rtl.css" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
@@ -607,9 +606,8 @@
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-vi.js" />
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-zh_CN.js" />
     <Content Include="Content\js\validationEngine\languages\jquery.validationEngine-zh_TW.js" />
-    <Content Include="EmployeesList.aspx" />
+    <Content Include="Views\Employees\List.aspx" />
     <Content Include="Index.aspx" />
-    <Content Include="sdf.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -645,12 +643,12 @@
     </Compile>
     <Compile Include="ViewModels\ContextState.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
-    <Compile Include="EmployeesList.aspx.cs">
-      <DependentUpon>EmployeesList.aspx</DependentUpon>
+    <Compile Include="Views\Employees\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EmployeesList.aspx.designer.cs">
-      <DependentUpon>EmployeesList.aspx</DependentUpon>
+    <Compile Include="Views\Employees\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

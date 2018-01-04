@@ -6,9 +6,9 @@ using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace EmployeeBox
+namespace EmployeeBox.Views.Employees
 {
-    public partial class EmployeesList : Page
+    public partial class List : Page
     {
         private EmployeeRepository _repository;
         private CommonRepository _common;
@@ -24,7 +24,7 @@ namespace EmployeeBox
 
             if (!Page.IsPostBack)
             {
-                var _results = _repository.List(1, 10);
+                var _results = _repository.EmployeeList(1, 10);
                 PopulateTable(_common.ConvertIEnumerableToDataTable(_results));
 
                 employeeEducationList.Items.Add(new ListItem {
@@ -75,7 +75,7 @@ namespace EmployeeBox
             if (employeeEducationList.Value != "0")
                 _employee.EducationalQualifications = Convert.ToInt32(employeeEducationList.Value);
 
-            var _results = _repository.List(_employee.Name, _employee.NationalID,
+            var _results = _repository.EmployeeList(_employee.Name, _employee.NationalID,
                 _employee.HireDateFrom,_employee.HireDateTo,_employee.JoinDateFrom,_employee.JoinDateTo,
                 _employee.EmployeeShareFrom,_employee.EmployeeShareTo,_employee.EducationalQualifications);
 
