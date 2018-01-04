@@ -162,7 +162,8 @@ namespace EmployeeBox.App_Code
         }
         #endregion
 
-        internal IEnumerable<Employee> List(int? page = 1 , int? pageSize = 10)
+        #region List_Functions
+        internal IEnumerable<Employee> EmployeeList(int? page = 1 , int? pageSize = 10)
         {
             List<Employee> _list = new List<Employee>();
             SqlCommand _com = new SqlCommand(@"SELECT     EmployeeID, NationalID, Name, BirthDate,
@@ -193,7 +194,7 @@ namespace EmployeeBox.App_Code
             return _list;
         }
 
-        internal IEnumerable<Employee> List(string employeeName = null,
+        internal IEnumerable<Employee> EmployeeList(string employeeName = null,
             decimal? nationalID = default(decimal?),
             DateTime? hireDateFrom = default(DateTime?),DateTime? hireDateTo = default(DateTime?),
             DateTime? joinDateFrom = default(DateTime?),DateTime? joinDateTo = default(DateTime?),
@@ -258,6 +259,30 @@ FROM         Employees LEFT JOIN
             return _list;
         }
 
+        internal IEnumerable<EducationalQualification> EducationalQualificationList()
+        {
+            List<EducationalQualification> _list = new List<EducationalQualification>();
+            SqlCommand _com = new SqlCommand(@"SELECT     EducationalQualificationID, EducationalQualificationName
+FROM         EducationalQualifications", _db);
+            _db.Open();
+            SqlDataReader _dr = _com.ExecuteReader();
+            if (_dr.HasRows)
+                while (_dr.Read())
+                {
+                    _list.Add(new EducationalQualification
+                    {
+                        EducationalQualificationID = Convert.ToInt32(_dr[0]),
+                        EducationalQualificationName = _dr[1].ToString()
+                    });
+                }
+
+            _dr.Close();
+            _db.Close();
+            return _list;
+        }
+        #endregion
+
+        #region IsExist_Functions
         internal bool IsExist(string emplyeeName = null, decimal? nationalID = default(decimal?))
         {
             bool _exist = false;
@@ -275,27 +300,7 @@ FROM         Employees LEFT JOIN
             _db.Close();
             return _exist;
         }
+        #endregion
 
-        internal IEnumerable<EducationalQualification> EducationalQualificationList()
-        {
-            List<EducationalQualification> _list = new List<EducationalQualification>();
-            SqlCommand _com = new SqlCommand(@"SELECT     EducationalQualificationID, EducationalQualificationName
-FROM         EducationalQualifications",_db);
-            _db.Open();
-            SqlDataReader _dr = _com.ExecuteReader();
-            if (_dr.HasRows)
-                while (_dr.Read())
-                {
-                    _list.Add(new EducationalQualification
-                    {
-                        EducationalQualificationID = Convert.ToInt32(_dr[0]),
-                        EducationalQualificationName = _dr[1].ToString()
-                    });
-                }
-
-            _dr.Close();
-            _db.Close();
-            return _list;
-        }
     }
 }
